@@ -61,7 +61,7 @@ def create_processed_events_source_kafka(t_env):
             window_timestamp AS TO_TIMESTAMP(event_time, '{pattern}'),
             WATERMARK FOR window_timestamp AS window_timestamp - INTERVAL '15' SECOND
         ) WITH (
-             'connector' = 'kafka',
+            'connector' = 'kafka',
             'properties.bootstrap.servers' = '{os.environ.get('KAFKA_URL')}',
             'topic' = '{os.environ.get('KAFKA_TOPIC')}',
             'properties.group.id' = '{os.environ.get('KAFKA_GROUP')}',
@@ -105,7 +105,7 @@ def log_aggregation():
                     col("host"),
                     col("host").count.alias("num_hits")
             ) \
-            .execute_insert(aggregated_table)
+            .execute_insert(aggregated_table).wait()
 
         t_env.from_path(source_table).window(
             Tumble.over(lit(5).minutes).on(col("window_timestamp")).alias("w")
