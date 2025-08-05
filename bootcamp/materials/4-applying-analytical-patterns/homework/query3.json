@@ -1,0 +1,12 @@
+[
+ {
+  "question": "Question 1: Most wins in 90-game stretch",
+  "team_id": 1610612744,
+  "result": "77"
+ },
+ {
+  "question": "Question 2: LeBron consecutive 10+ point games",
+  "team_id": null,
+  "result": "104"
+ }
+]

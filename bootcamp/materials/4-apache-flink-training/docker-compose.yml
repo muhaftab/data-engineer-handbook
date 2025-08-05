@@ -16,6 +16,7 @@ services:
       - ./:/opt/flink/usrlib
       - ./src/:/opt/src
       - ./muaft:/opt/muaft
+      - ./homework:/opt/homework
     command: jobmanager
     extra_hosts:
       - "host.docker.internal:host-gateway" #// Access services on the host machine from within the Docker container
@@ -43,6 +44,7 @@ services:
       - ./:/opt/flink/usrlib
       - ./src/:/opt/src
       - ./muaft:/opt/muaft
+      - ./homework:/opt/homework
     depends_on:
       - jobmanager
     command: taskmanager --taskmanager.registration.timeout 5 min

@@ -26,7 +26,7 @@ create table players_scd (
     end_season INTEGER,
     current_season INTEGER,
     PRIMARY KEY (player_name, start_season)
-)
+);
 
 
 create type scd_type as (
